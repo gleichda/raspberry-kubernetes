@@ -1,0 +1,12 @@
+roles:
+#  - name: geerlingguy.kubernetes
+#    version: 6.0.0
+  - name: geerlingguy.containerd
+    version: 1.1.1
+
+  - src: https://github.com/rdxmb/ansible-role-kubernetes
+    version: modules-sysctl-network-bridge
+    name: geerlingguy.kubernetes
+
+  - name: nicholaswilde.flux2
+    version: v1.0.11

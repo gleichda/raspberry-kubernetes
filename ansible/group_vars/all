@@ -1,0 +1,16 @@
+---
+kubernetes_packages:
+  - name: kubelet
+    state: present
+  - name: kubernetes-cni
+    state: present
+  - name: kubeadm
+    state: present
+kubernetes_version: '1.21'
+kubernetes_pod_network:
+  # Calico CNI.
+#   cni: 'calico'
+#   cidr: '10.0.0.0/13'
+  # Flannel CNI.
+   cni: 'flannel'
+   cidr: '10.0.0.0/13'
