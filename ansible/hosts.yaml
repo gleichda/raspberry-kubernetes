@@ -4,5 +4,7 @@ all:
       hosts:
         192.168.32.180:
           hostname: api01
-
-
+#    nodes:
+#      hosts:
+#        192.168.32.190:
+#          hostname: node01

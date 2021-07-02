@@ -62,17 +62,3 @@
       tags:
         - k8s
       become: true
-
-
-- name: Install Flux
-  gather_facts: true
-  hosts: master
-
-  roles:
-    - role: nicholaswilde.flux2
-      become: true
-      app_ver: 0.15.3
-      app_arch: arm
-      tags:
-        - k8s
-        - flux

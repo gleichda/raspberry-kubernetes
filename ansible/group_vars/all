@@ -14,3 +14,4 @@ kubernetes_pod_network:
   # Flannel CNI.
    cni: 'flannel'
    cidr: '10.0.0.0/13'
+kubernetes_enable_web_ui: false
