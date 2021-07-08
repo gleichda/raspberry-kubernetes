@@ -1,10 +1,18 @@
 all:
   children:
-    master:
+    kubernetes:
+      children:
+        master:
+          hosts:
+            192.168.32.180:
+              hostname: api01
+        nodes:
+          hosts:
+            192.168.32.190:
+              hostname: node01
+    wireguard:
       hosts:
-        192.168.32.180:
-          hostname: api01
-#    nodes:
-#      hosts:
-#        192.168.32.190:
-#          hostname: node01
+        192.168.32.150:
+          hostname: wireguard
+          wireguard_address: "10.8.0.1/24"
+

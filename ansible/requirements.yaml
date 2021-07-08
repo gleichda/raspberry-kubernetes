@@ -10,3 +10,6 @@ roles:
 
   - name: nicholaswilde.flux2
     version: v1.0.11
+
+  - name: githubixx.ansible_role_wireguard
+    version: 7.12.0

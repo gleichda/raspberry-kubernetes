@@ -28,13 +28,6 @@
       tags:
         - baseline
 
-    - name: Install the required packages
-      apt:
-        name: "libseccomp2"
-        state: latest
-      become: true
-      tags:
-        - baseline
   post_tasks:
     - name: Check if reboot required
       stat:
@@ -48,7 +41,16 @@
 
 - name: Install K8s
   gather_facts: true
-  hosts: all
+  hosts: kubernetes
+
+  tasks:
+    - name: Install the required packages
+      apt:
+        name: "libseccomp2"
+        state: latest
+      become: true
+      tags:
+        - baseline
 
   roles:
     - role: geerlingguy.containerd
@@ -62,3 +64,25 @@
       tags:
         - k8s
       become: true
+
+- name: Install Wireguard
+  gather_facts: true
+  hosts: wireguard
+
+  roles:
+    - role: githubixx.ansible_role_wireguard
+      tags:
+        - wireguard
+      become: true
+
+  tasks:
+    - name: set ip forward
+      sysctl:
+        name: net.ipv4.ip_forward
+        value: '1'
+        sysctl_set: yes
+        state: present
+        reload: yes
+      become: true
+
+ ## TODO: IP Tables config https://github.com/pirate/wireguard-docs/blob/master/example-full/public-server1/setup.sh
