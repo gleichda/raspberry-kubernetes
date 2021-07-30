@@ -19,9 +19,9 @@ I use the [Raspberry Pi Imager](https://www.raspberrypi.org/software/) to instal
    flux bootstrap github \
     --owner=gleichda \
     --repository=raspberry-kubernetes \
-    --path=gitops \
+    --path=gitops/cluster \
     --branch=main \
-    --commit-message-appendix='[FLUX]' \
+    --commit-message-appendix='[FLUX] ' \
     --ssh-key-algorithm=ed25519 \
     --personal
    ```
@@ -34,4 +34,9 @@ I use the [Raspberry Pi Imager](https://www.raspberrypi.org/software/) to instal
 
 ## To be Automated stuff
 
-IP MAsq: apply the `[IP Masq agent](./gitops/kube-system/ip-masq-agent.yaml)`
+* IP MAsq: apply the `[IP Masq agent](./gitops/kube-system/ip-masq-agent.yaml)`
+* Add Secret controller
+
+## Reconsciling
+
+Before with flux v1 the command was `fluxctl sync` now use `flux reconcile source git flux-system`
