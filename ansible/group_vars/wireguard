@@ -28,7 +28,7 @@ wireguard_unmanaged_peers:
     allowed_ips: 10.8.0.2/32
     persistent_keepalive: 0
   david-mac:
-    public_key: RmG/VmCHlf0iFl2xJzCNU3X7iUZgPfQwYMajOalnJDg=
+    public_key: GXLAa/apU28pOmWBF7wzBEaS0v0euLI0MUnzveKMuig=
     allowed_ips: 10.8.0.3/32
     persistent_keepalive: 0
 
