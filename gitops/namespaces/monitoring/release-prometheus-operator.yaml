@@ -1,0 +1,69 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: kube-prometheus-stack
+  namespace: monitoring
+spec:
+  interval: 5m
+  chart:
+    spec:
+      chart: kube-prometheus-stack
+      version: 19.2.2
+      sourceRef:
+        kind: HelmRepository
+        name: prometheus-community
+      interval: 1m
+  install:
+    crds: Create
+  upgrade:
+    crds: CreateReplace
+  values:
+    nameOverride: prometheus
+    defaultRules:
+    # TODO: enable rules
+      create: false
+      rules:
+        alertmanager: true
+        etcd: true
+        general: true
+        k8s: true
+        kubeApiserver: true
+        kubeApiserverAvailability: true
+        kubeApiserverError: true
+        kubeApiserverSlos: true
+        kubelet: true
+        kubePrometheusGeneral: true
+        kubePrometheusNodeAlerting: true
+        kubePrometheusNodeRecording: true
+        kubernetesAbsent: true
+        kubernetesApps: true
+        kubernetesResources: true
+        kubernetesStorage: true
+        kubernetesSystem: true
+        kubeScheduler: true
+        kubeStateMetrics: true
+        network: true
+        node: true
+        prometheus: true
+        prometheusOperator: true
+        time: true
+
+
+
+
+
+    alertmanager:
+    # TODO Enable and configure alertmanager
+      enabled: false
+    grafana:
+      # TODO set and change password in a secure way
+      adminPassword: prom-operator
+      sidecar:
+        dashboards:
+          searchNamespace: ALL
+    prometheus:
+      prometheusSpec:
+        image: 
+          tag: v2.30.3
+        retention: 180d
