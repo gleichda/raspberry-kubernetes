@@ -57,12 +57,19 @@ spec:
     # TODO Enable and configure alertmanager
       enabled: false
     grafana:
+      service:
+        type: NodePort
+        nodePort: 30092
       # TODO set and change password in a secure way
       adminPassword: prom-operator
       sidecar:
         dashboards:
           searchNamespace: ALL
     prometheus:
+      service:
+        type: NodePort
+        nodePort: 30091
+
       prometheusSpec:
         image: 
           tag: v2.30.3
