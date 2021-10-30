@@ -22,9 +22,9 @@ spec:
     nameOverride: prometheus
     defaultRules:
     # TODO: enable rules
-      create: false
+      create: true
       rules:
-        alertmanager: true
+        alertmanager: false
         etcd: true
         general: true
         k8s: true
