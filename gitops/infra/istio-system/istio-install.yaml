@@ -1,0 +1,16 @@
+apiVersion: install.istio.io/v1alpha1
+kind: IstioOperator
+metadata:
+  namespace: istio-system
+  name: istio
+spec:
+  profile: minimal
+  meshConfig:
+    accessLogFile: /dev/stdout
+  components:
+    ingressGateways:
+      enabled: true
+      name: istio-ingress
+      k8s:
+        hpaSpec:
+          minReplicas: 2
