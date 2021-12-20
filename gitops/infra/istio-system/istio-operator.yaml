@@ -6,9 +6,10 @@ metadata:
 spec:
   releaseName: istio-operator
   chart:
+    name: istio-operator
     git: https://github.com/istio/istio
-    ref: 1.12.1
     path: manifests/charts/istio-operator
+    ref: 1.12.1
   values:
     hub: gcr.io/istio-release
     tag: 1.12.1
