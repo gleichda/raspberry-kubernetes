@@ -7,8 +7,8 @@ spec:
   releaseName: istio-operator
   chart:
     git: https://github.com/istio/istio
-    ref: 1.11.4
+    ref: 1.12.1
     path: manifests/charts/istio-operator
   values:
     hub: gcr.io/istio-release
-    tag: 1.11.4
+    tag: 1.12.1
