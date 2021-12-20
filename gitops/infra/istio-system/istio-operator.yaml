@@ -32,5 +32,5 @@ spec:
         namespace: istio-system
       interval: 1m
   values:
-    hub: gcr.io/istio-release
+    hub: docker.io/querycapistio
     tag: 1.12.1
