@@ -8,25 +8,29 @@ spec:
   interval: 1m
   url: https://github.com/istio/istio
   ref:
-    branch: master
+    tag: 1.12.1
   ignore: |
     # exclude all
     /*
     # include charts directory
     !/manifests/charts/
 ---
-apiVersion: helm.fluxcd.io/v1
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
   name: istio-operator
   namespace: istio-system
 spec:
-  releaseName: istio-operator
+  interval: 1m
   chart:
-    name: istio-operator
-    git: https://github.com/istio/istio
-    path: manifests/charts/istio-operator
-    ref: 1.12.1
+    spec:
+      chart: manifests/charts/istio-operator
+      version: '1.0.0'
+      sourceRef:
+        kind: GitRepository
+        name: istio-operator
+        namespace: istio-system
+      interval: 1m
   values:
     hub: gcr.io/istio-release
     tag: 1.12.1
