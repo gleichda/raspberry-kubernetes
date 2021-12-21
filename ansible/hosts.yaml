@@ -10,9 +10,9 @@ all:
           hosts:
             192.168.32.190:
               hostname: node01
-    wireguard:
-      hosts:
-        192.168.32.150:
-          hostname: wireguard
-          wireguard_address: "10.8.0.1/24"
+    # wireguard:
+    #   hosts:
+    #     192.168.32.150:
+    #       hostname: wireguard
+    #       wireguard_address: "10.8.0.1/24"
 

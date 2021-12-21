@@ -2,6 +2,7 @@
 - name: Initial Preparation
   gather_facts: true
   hosts: all
+  serial: 1
   tasks:
     - name: Set a hostname
       ansible.builtin.hostname:
@@ -42,7 +43,7 @@
 - name: Install K8s
   gather_facts: true
   hosts: kubernetes
-
+  serial: 1
   tasks:
     - name: Install the required packages
       apt:
