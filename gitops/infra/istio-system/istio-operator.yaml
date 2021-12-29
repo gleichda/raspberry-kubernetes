@@ -32,5 +32,6 @@ spec:
         namespace: istio-system
       interval: 1m
   values:
+    # until https://github.com/istio/istio/issues/21094 is resolved
     hub: docker.io/querycapistio
     tag: 1.12.1
