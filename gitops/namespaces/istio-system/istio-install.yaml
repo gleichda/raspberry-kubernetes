@@ -9,8 +9,8 @@ spec:
     accessLogFile: /dev/stdout
   components:
     ingressGateways:
-      enabled: true
-      name: istio-ingress
-      k8s:
-        hpaSpec:
-          minReplicas: 2
+      - name: istio-ingress
+        enabled: true
+        k8s:
+          hpaSpec:
+            minReplicas: 2
